@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split, cross_val_score, cross_val
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, roc_curve, roc_auc_score
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 # Part 1 - Binary classifiers
 
@@ -125,6 +127,28 @@ confusion_matrix_all = confusion_matrix(y_train, cross_val_pred_all)
 recall_all = recall_score(y_train, cross_val_pred_all, average="weighted")
 precision_all = precision_score(y_train, cross_val_pred_all, average="weighted")
 f1_all = f1_score(y_train, cross_val_pred_all, average="weighted")
-print(recall_all)
-print(precision_all)
-print(f1_all)
+
+
+forest_all = RandomForestClassifier(random_state=42)
+y_probs_forest_all = cross_val_predict(forest_all, x_train, y_train, cv=3, method="predict_proba")
+forest_all.fit(x_train, y_train)
+predictions_all_forest = forest_all.predict(x_test)
+count = 0
+for i in range(0, len(y_test)):
+    if predictions_all_forest[i] != y_test[i]:
+        count += 1
+
+print(1.0 - (float(count) / len(y_test)))
+'''
+    
+Main types of classification
+
+Binary - classify into on/off class (0v1)
+         mnist dataset, classify one vs rest (e.g. is 0 vs not 0)
+Multiclass - classify into 1 of multiple classes (0v1v2v3v4v5v6v7v8v9)
+         mnist dataset, classify one (e.g. which of 10 digits is it)
+Multilabel - classify into many of multiple classes (e.g. face recognition)
+         facial recognition, classify multiple (e.g. if 3 classes/faces of labels [Bob, Dave, Jo], when shown a picture
+         what classes/faces are present [if Bob, return [1, 0, 0]])
+Multiouput - TODO
+'''
