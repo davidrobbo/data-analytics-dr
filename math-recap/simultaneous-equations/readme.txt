@@ -74,24 +74,3 @@ Dx = replace 4 above with d1 (-14)
              3            d3 (28)
 Dy...
 Dz...
-
-Vectors
-Basis vectors i^, j^ (k^)
-Vectors are associative
-Vector addition gives a resultant vector with a magnitude
- [1, 2] + [3, 4] = [4, 6]
-Scalars applied to vectors work on individual components
-4[1, 2] = [4*1, 4*2] = [4, 8]
-Magnitude of a vector v ([2, 3]) = sqrt(ai**2 + bj**2) = sqrt(4 + 9) = |v| = sqrt of sum of products squared
-Dot product of 2 vectors (r=[a, b], s=[c, d]) = a*c + b*d = r.s
-Dot products are commutative = order of ops not important = r.s = s.r
-
-Projections TODO Scalar and Vector projection
-Two vectors are orthogonal (at 90 deg) if dot product = 0
-Consider projections using torch shone orthogonal to vector projected onto and shadow cast by vector projecting onto this
-a = [1, 2] b = [3, 4]
-Projection of a onto b = Proj b a =
-((a.b) / (|b|**2)) * b = (11 / 25) * [3, 4] = [33/25, 44/25] = [1.32, 1.76] = Vector Projection
-Scalar Projection = Magnitude of above vector projection
-a.b / |b| = 11 / 5
-
