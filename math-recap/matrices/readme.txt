@@ -54,3 +54,22 @@ A = [[1, 1, 1],  15
 100
 010
 001
+
+If a matrix is linear dependent, then it is classed as singular, 0 determinant, and collapsed along a single plane/axis, and has no inverse
+
+e.g.
+1 2 3
+2 4 6
+3 6 9
+
+Determinant of matrix A = | A |
+Thought of as area/space changed when transformed by matrix
+
+Matrix product
+Multiple row by column
+
+12   123
+34   456
+=
+9,12,15
+19,26,33
