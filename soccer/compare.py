@@ -10,12 +10,13 @@ import pydotplus
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-df, y = get_clean_df(limit=10000)
+df, y = get_clean_df(limit=20000)
 
 X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=0)
 X_test_odds = X_test['best_win_odds']
 X_train.drop(columns=['best_win_odds'], inplace=True)
 X_test.drop(columns=['best_win_odds'], inplace=True)
+print(X_train.columns)
 models = {
     "bayes": GaussianNB(),
     "svm": svm.SVC(),
