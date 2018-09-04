@@ -39,6 +39,7 @@ def get_clean_df(limit = 2500):
                 'match_api_id', 'league_id', 'country_id', 'home_points', 'away_points']
     df['home_away_last_five_dif'] = df['home_last_five'] - df['away_last_five']
     df['home_away_season_dif'] = df['home_season_points'] - df['away_season_points']
+    df['home_form_away_form_dif'] = df['home_home_form_last_5'] - df['away_away_form_last_5']
     df.drop(columns=excludes, inplace=True)
     df.dropna(how='all', axis=1, inplace=True)
     df = df[df.columns.drop(list(df.filter(regex="player")))]
